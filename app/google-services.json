@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "770557684326",
+    "firebase_url": "https://movie-app-igor.firebaseio.com",
+    "project_id": "movie-app-igor",
+    "storage_bucket": "movie-app-igor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770557684326:android:ea5a6854e68f1cf9835ba7",
+        "android_client_info": {
+          "package_name": "com.im.movieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770557684326-bqfjmt7b6mgidjtfs6oiaom0m8u4v88h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHHLU-3uFXQ-OuPkOfU_aJ40Bc_Gp3WlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770557684326-bqfjmt7b6mgidjtfs6oiaom0m8u4v88h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

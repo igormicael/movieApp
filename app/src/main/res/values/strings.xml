@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">movieApp</string>
+    <string name="retrieve_password"> Forgot my passord</string>
+    <string name="new_user"> New user</string>
+    <string name="logar"> Login</string>
+    <string name="criar"> Create</string>
+    <string name="enviar"> Send</string>
+
+    <string name="title_activity_login">Login</string>
+
+    <string name="responder">Answer</string>
+    <string name="novo_jogo">New Game</string>
+    <string name="inform_email">Please inform email</string>
+    <string name="inform_password">Please inform password</string>
+    <string name="auth_failed">Authentication failed.</string>
+    <string name="log_in">Log in</string>
+    <string name="user_created">User created!</string>
+    <string name="user_not_created">Error: User wasn\'t created!</string>
+    <string name="create">Create</string>
+    <string name="email_sent">E-mail sent!</string>
+    <string name="email_sent_error">Error: It was impossible to send email!</string>
+</resources>
