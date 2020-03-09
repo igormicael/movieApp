@@ -19,4 +19,10 @@
     <string name="create">Create</string>
     <string name="email_sent">E-mail sent!</string>
     <string name="email_sent_error">Error: It was impossible to send email!</string>
+    <string name="movie_app">Movie App</string>
+
+    <string name="nav_open">Open Navigation Drawer</string>
+    <string name="nav_close">Close Navigation Drawer</string>
+    <string name="menu_fav">Favoritos</string>
+    <string name="menu_home">Filmes</string>
 </resources>

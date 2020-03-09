@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.im.movieapp.FormFragment.Companion.BUTTON_NAME
 import com.im.movieapp.action.FragmentAction
+import com.im.movieapp.action.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), FragmentAction {
@@ -36,9 +37,9 @@ class LoginActivity : AppCompatActivity(), FragmentAction {
         auth.signInWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    /*val intent = Intent(this, GameActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this, "User logged in!", Toast.LENGTH_SHORT).show()*/
+                    Toast.makeText(this, "User logged in!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         this, getString(R.string.auth_failed),
