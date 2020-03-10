@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.im.movieapp.FormFragment.Companion.BUTTON_NAME
 import com.im.movieapp.action.FragmentAction
-import com.im.movieapp.action.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), FragmentAction {
