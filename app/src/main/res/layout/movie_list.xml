@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="6dp"
@@ -13,37 +13,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
-
-        <ImageView
-            android:id="@+id/imgSrc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp" />
+        android:padding="25dp">
 
         <TextView
             android:id="@+id/movie_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="1dp"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="@color/cardview_light_background"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
             android:textSize="18sp"
-            tools:text="teste" />
+            tools:text="E o vento levou" />
 
-        <TextView
-            android:id="@+id/details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="18sp"
-            tools:text="details" />
+        <ImageView
+            android:id="@+id/imgSrc"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/cardview_default_elevation"
+            />
 
-        <Button
-            android:id="@+id/action"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Action" />
+
 
     </LinearLayout>
 

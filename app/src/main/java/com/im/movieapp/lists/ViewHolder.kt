@@ -21,7 +21,6 @@ class ViewHolder(
 
     var movieName: TextView = view.findViewById(R.id.movie_name)
     var imgSrc: ImageView = view.findViewById(R.id.imgSrc)
-    var details: TextView = view.findViewById(R.id.details)
 
     init {
         view.setOnClickListener(this)

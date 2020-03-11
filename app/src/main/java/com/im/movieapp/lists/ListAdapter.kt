@@ -30,15 +30,14 @@ class ListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = data.get(position)
 
-        holder.movieName.text = currentItem.name
+        holder.movieName.text = currentItem.title
 
         Picasso.get()
-            .load(currentItem.imgSrc)
+            .load(currentItem.imgSrc + currentItem.poster_path)
+            .fit()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.mipmap.ic_launcher_round)
             .into(holder.imgSrc)
-
-        holder.details.text = currentItem.details
 
         holder.movieName.setOnClickListener {
             if (!escolhido) {
