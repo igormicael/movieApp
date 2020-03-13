@@ -1,5 +1,6 @@
 package com.im.movieapp.lists
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +13,6 @@ class ListAdapter(
     onListListener: OnListListener
 ) :
     RecyclerView.Adapter<ViewHolder>() {
-
-    var escolhido = false
 
     var onListListener: OnListListener = onListListener
 
@@ -28,22 +27,20 @@ class ListAdapter(
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = data.get(position)
+
+        val currentItem = data[position]
 
         holder.movieName.text = currentItem.title
 
         Picasso.get()
-            .load(currentItem.imgSrc + currentItem.poster_path)
+            .load("https://image.tmdb.org/t/p/w185_and_h278_bestv2" + currentItem.poster_path)
             .fit()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.mipmap.ic_launcher_round)
             .into(holder.imgSrc)
 
         holder.movieName.setOnClickListener {
-            if (!escolhido) {
-                escolhido = true
-                holder.onClick(it)
-            }
+            holder.onClick(it)
         }
     }
 }

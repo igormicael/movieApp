@@ -25,4 +25,7 @@
     <string name="nav_close">Close Navigation Drawer</string>
     <string name="menu_fav">Favoritos</string>
     <string name="menu_home">Filmes</string>
+    <string name="imgPrefix">https://image.tmdb.org/t/p/w185_and_h278_bestv2</string>
+    <string name="error">Deu ruim!!!</string>
+    <string name="add_to_fav">Filme adicionado aos favoritos</string>
 </resources>

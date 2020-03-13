@@ -14,7 +14,7 @@ class ViewHolder(
     RecyclerView.ViewHolder(view), View.OnClickListener {
 
     override fun onClick(v: View?) {
-        Log.v("ViewHolder", "onCLick")
+        onListListener.onClick(adapterPosition);
     }
 
     var onListListener: OnListListener = onListListener
