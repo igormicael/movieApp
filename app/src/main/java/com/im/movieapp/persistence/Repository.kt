@@ -53,13 +53,13 @@ object Repository {
     }
 
     fun getMovie(
-        id: Int,
+        movie_id: Int,
         onSuccess: (movie: Movie) -> Unit,
         onError: () -> Unit
     ) {
 
 
-        service.getMovie(movie_id = id)
+        service.getMovie(movie_id)
             .enqueue(object : Callback<Movie> {
                 override fun onResponse(
                     call: Call<Movie>,

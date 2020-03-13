@@ -11,8 +11,8 @@ interface Dao {
     @Insert
     fun save(movie: Movie)
 
-    @Query(value = "Select * from movie")
-    fun getAll() : List<Movie>
+    @Query(value = "Select * from movie where user like :user")
+    fun getByUser(user: String) : List<Movie>
 
     @Query(value = "Select * from movie where id = :id")
     fun getById(id: Int): Movie
