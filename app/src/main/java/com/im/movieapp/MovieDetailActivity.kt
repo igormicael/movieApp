@@ -4,12 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.im.movieapp.model.Movie
+import com.im.movieapp.persistence.Dao
+import com.im.movieapp.persistence.Db
 import com.im.movieapp.persistence.Repository
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 
 class MovieDetailActivity : AppCompatActivity() {
+
+    private lateinit var dao: Dao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +30,17 @@ class MovieDetailActivity : AppCompatActivity() {
             ::onMoviesSuccess,
             ::onMovieError
         )
+
+        var database = Room.databaseBuilder(
+                this,
+                Db::class.java,
+                "movies"
+            )
+            .allowMainThreadQueries()
+            .build()
+
+        dao = database.dao()
+
     }
 
     private fun onMoviesSuccess(movie: Movie) {
@@ -37,12 +53,20 @@ class MovieDetailActivity : AppCompatActivity() {
             .error(R.mipmap.ic_launcher_round)
             .into(movie_image)
 
+        var exists = dao.getById(movie.id);
 
-        fav.setOnClickListener {
-            Toast.makeText(this, getString(R.string.add_to_fav), Toast.LENGTH_LONG)
-                .show()
+        if (exists != null && exists.id != null) {
+            fav.text = "Favoritado"
         }
 
+        fav.setOnClickListener {
+            if (exists == null) {
+                dao.save(movie)
+                Toast.makeText(this, getString(R.string.add_to_fav), Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Filme já é favorito", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun onMovieError() {

@@ -11,7 +11,10 @@ interface Dao {
     @Insert
     fun save(movie: Movie)
 
-    @Query(value = "Select * from movie where title IN (:title)")
-    fun getByTitle(title: String): List<Movie>
+    @Query(value = "Select * from movie")
+    fun getAll() : List<Movie>
+
+    @Query(value = "Select * from movie where id = :id")
+    fun getById(id: Int): Movie
 
 }

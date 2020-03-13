@@ -8,12 +8,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.room.Room
 import com.google.android.material.navigation.NavigationView
 import com.im.movieapp.R.id.nav_fav
 import com.im.movieapp.R.id.nav_home
 import com.im.movieapp.lists.ListAdapter
 import com.im.movieapp.lists.OnListListener
 import com.im.movieapp.model.Movie
+import com.im.movieapp.persistence.Dao
+import com.im.movieapp.persistence.Db
 import com.im.movieapp.persistence.Repository
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar.*
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var movies: ArrayList<Movie> = arrayListOf();
     var shownMovies: List<Movie> = listOf();
+
+    private lateinit var dao: Dao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             ::onMovieSuccess,
             ::onMovieError
         )
+
+        var database = Room.databaseBuilder(
+                this,
+                Db::class.java,
+                "movies"
+            )
+            .allowMainThreadQueries()
+            .build()
+
+        dao = database.dao()
 
     }
 
@@ -76,8 +91,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun showFavoritesMovies() {
-        // shownMovies = movies.filter { i -> i.fav }
-        //TODO: buscar lista salva no banco
+        shownMovies = dao.getAll()
+
     }
 
     override fun onClick(position: Int) {
@@ -87,6 +102,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val b = Bundle()
         b.putInt("id", movie.id)
         intent.putExtra("bundle", b)
+
+
         startActivity(intent)
     }
 
