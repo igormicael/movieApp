@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
     xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     android:background="#4CAF50"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingBottom="15dp">
+    android:paddingStart="15dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="15dp"
+    android:paddingBottom="5dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/user_icon"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/user"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        tool:text="Igor Micael"
-        android:textColor="@android:color/white"
-        android:textSize="24dp" />
+        android:baselineAligned="true"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/logout"
-        android:text="Sair"
-        android:layout_gravity="end"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            tool:text="Igor Micael" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:textSize="12sp" />
+    </LinearLayout>
+
 
 </LinearLayout>

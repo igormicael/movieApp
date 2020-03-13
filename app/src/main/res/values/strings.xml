@@ -28,4 +28,6 @@
     <string name="imgPrefix">https://image.tmdb.org/t/p/w185_and_h278_bestv2</string>
     <string name="error">Deu ruim!!!</string>
     <string name="add_to_fav">Filme adicionado aos favoritos</string>
+    <string name="logout">Sair</string>
+    <string name="user_icon">User Icon</string>
 </resources>
