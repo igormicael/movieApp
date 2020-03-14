@@ -30,4 +30,8 @@
     <string name="add_to_fav">Filme adicionado aos favoritos</string>
     <string name="logout">Sair</string>
     <string name="user_icon">User Icon</string>
+    <string name="faved">Favoritado</string>
+    <string name="ja_eh_fav">Filme já é favorito</string>
+    <string name="movies">Filmes</string>
+    <string name="favs">Favoritos</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.im.movieapp.persistence
 
-import android.util.Log
 import com.im.movieapp.api.MovieResponse
 import com.im.movieapp.api.Service
 import com.im.movieapp.model.Movie
@@ -16,8 +15,8 @@ object Repository {
 
     init {
 
-        var retrofit = Retrofit.Builder().baseUrl("https://api.themoviedb.org/3/")
-            .addConverterFactory(GsonConverterFactory.create()).build();
+        val retrofit = Retrofit.Builder().baseUrl("https://api.themoviedb.org/3/")
+            .addConverterFactory(GsonConverterFactory.create()).build()
 
         service = retrofit.create(Service::class.java)
 

@@ -13,7 +13,7 @@ import com.im.movieapp.action.FragmentAction
 
 class FormFragment : Fragment() {
 
-    lateinit var fragmentAction: FragmentAction
+    private lateinit var fragmentAction: FragmentAction
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

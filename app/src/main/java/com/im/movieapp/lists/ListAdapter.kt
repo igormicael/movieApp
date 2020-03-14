@@ -1,6 +1,5 @@
 package com.im.movieapp.lists
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,12 +8,12 @@ import com.im.movieapp.model.Movie
 import com.squareup.picasso.Picasso
 
 class ListAdapter(
-    var data: List<Movie>,
+    private var data: List<Movie>,
     onListListener: OnListListener
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
-    var onListListener: OnListListener = onListListener
+    private var onListListener: OnListListener = onListListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater

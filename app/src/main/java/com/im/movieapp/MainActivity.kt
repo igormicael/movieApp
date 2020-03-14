@@ -2,7 +2,6 @@ package com.im.movieapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -27,8 +26,8 @@ import kotlinx.android.synthetic.main.drawer_header.*
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     OnListListener {
 
-    var movies: ArrayList<Movie> = arrayListOf();
-    var shownMovies: List<Movie> = listOf();
+    private var movies: ArrayList<Movie> = arrayListOf()
+    private var shownMovies: List<Movie> = listOf()
 
     private lateinit var dao: Dao
     private lateinit var auth: FirebaseAuth
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             ::onMovieError
         )
 
-        var database = Room.databaseBuilder(
+        val database = Room.databaseBuilder(
                 this,
                 Db::class.java,
                 "movies"
@@ -64,16 +63,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             nav_home -> {
-                drawer_title.text = "Filmes"
-                showAllMovies();
+                drawer_title.text = getString(R.string.movies)
+                showAllMovies()
             }
             nav_fav -> {
-                drawer_title.text = "Favoritos"
-                showFavoritesMovies();
+                drawer_title.text = getString(R.string.favs)
+                showFavoritesMovies()
             }
         }
 
-        var movieList = movies_list
+        val movieList = movies_list
         movieList.adapter = ListAdapter(shownMovies, this)
         movieList.layoutManager = GridLayoutManager(this, 2)
 
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         logout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-            auth.signOut();
+            auth.signOut()
             startActivity(intent)
             finish()
         }
@@ -95,25 +94,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun onMovieError() {
-        Toast.makeText(this, "Deu ruim!!!", Toast.LENGTH_LONG)
+        Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG)
             .show()
     }
 
-    fun showAllMovies() {
+    private fun showAllMovies() {
         shownMovies = movies
     }
 
-    fun showFavoritesMovies() {
-
-        var teste = dao.getByUser(auth.currentUser?.email.toString())
-
-        Log.v("main", teste.toString());
-
+    private fun showFavoritesMovies() {
         shownMovies = dao.getByUser(auth.currentUser?.email.toString())
     }
 
     override fun onClick(position: Int) {
-        var movie = shownMovies[position]
+        val movie = shownMovies[position]
 
         val intent = Intent(this, MovieDetailActivity::class.java)
         val b = Bundle()

@@ -12,7 +12,7 @@ interface Dao {
     fun save(movie: Movie)
 
     @Query(value = "Select * from movie where user like :user")
-    fun getByUser(user: String) : List<Movie>
+    fun getByUser(user: String): List<Movie>
 
     @Query(value = "Select * from movie where id = :id")
     fun getById(id: Int): Movie

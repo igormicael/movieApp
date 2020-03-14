@@ -1,6 +1,5 @@
 package com.im.movieapp.lists
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,10 +13,10 @@ class ViewHolder(
     RecyclerView.ViewHolder(view), View.OnClickListener {
 
     override fun onClick(v: View?) {
-        onListListener.onClick(adapterPosition);
+        onListListener.onClick(adapterPosition)
     }
 
-    var onListListener: OnListListener = onListListener
+    private var onListListener: OnListListener = onListListener
 
     var movieName: TextView = view.findViewById(R.id.movie_name)
     var imgSrc: ImageView = view.findViewById(R.id.imgSrc)
